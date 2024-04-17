@@ -19,12 +19,12 @@
     "rss": "https://github.com/eliashaeussler/composer-update-reporter/releases.atom"
   },
   "require": {
-    "php": ">= 7.1 < 8.2",
+    "php": ">= 7.1 < 8.3",
     "ext-filter": "*",
     "ext-json": "*",
     "ext-mbstring": "*",
     "composer-plugin-api": "^1.0 || ^2.0",
-    "eliashaeussler/composer-update-check": "^1.0",
+    "eliashaeussler/composer-update-check": "dev-feature/support-php82 as 1.6",
     "nyholm/psr7": "^1.0",
     "psr/http-client": "^1.0",
     "psr/http-message": "^1.0",
@@ -42,6 +42,12 @@
     "phpunit/phpunit": "^7.5 || ^8.5.23 || ^9.0",
     "rpkamp/mailhog-client": ">= 0.3 < 1.1"
   },
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://github.com/mteu/composer-update-check"
+    }
+  ],
   "autoload": {
     "psr-4": {
       "EliasHaeussler\\ComposerUpdateReporter\\": "src"
@@ -55,7 +61,8 @@
   "config": {
     "allow-plugins": {
       "eliashaeussler/composer-update-check": true,
-      "ergebnis/composer-normalize": true
+      "ergebnis/composer-normalize": true,
+      "php-http/discovery": true
     },
     "sort-packages": true
   },
